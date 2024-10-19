@@ -37,7 +37,7 @@ func main() {
 		)
 	}
 
-	var qLow, qHigh = 1.0, 10.0
+	qLow, qHigh := 1.0, 10.0
 	maxBitrate := float64(CLI.MaxBitrate)
 
 	initWorkspace()

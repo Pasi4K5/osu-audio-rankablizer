@@ -50,7 +50,7 @@ func main() {
 	convert(CLI.InputPath, qHigh)
 	bitrateHigh := getBitrate(tmpFile, durationSec)
 
-	for {
+	for qHigh-qLow > CLI.MaxQualityDifference {
 		m := (qHigh - qLow) / (bitrateHigh - bitrateLow)
 		b := qLow - m*bitrateLow
 		qEst := m*maxBitrate + b
@@ -64,10 +64,6 @@ func main() {
 			qHigh = qEst
 		} else {
 			qLow = qEst
-		}
-
-		if qHigh-qLow < CLI.MaxQualityDifference {
-			break
 		}
 	}
 
